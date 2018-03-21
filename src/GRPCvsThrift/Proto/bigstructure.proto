@@ -1,0 +1,19 @@
+syntax = "proto3";
+package bigstructure;
+
+service ProtoBigStructure {
+  rpc Ping (Void) returns (Void) {}
+  rpc BigStructureCall (BigStructure) returns (Void) {}
+}
+
+message BigStructure {
+  repeated BigStructure children = 9;
+  oneof value_oneof {
+    int64  i = 1;
+    bool   b = 2;
+    string s = 3;
+    bytes  y = 4;
+  }
+}
+
+message Void {}
