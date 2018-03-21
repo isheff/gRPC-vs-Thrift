@@ -14,7 +14,7 @@ import Data.Types.Isomorphic
 import System.Random
   
 repetitions = 10
-size_of_structure = 200 -- it ends up being a little more than this in kb
+size_of_structure = 300 -- it ends up being a little more than this in kb
 
 main :: IO ()
 main = do
