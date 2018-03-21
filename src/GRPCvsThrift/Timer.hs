@@ -13,14 +13,14 @@ import Data.Time.Clock
 import Data.Types.Isomorphic
 import System.Random
   
-repetitions = 100
-size_of_structure = 300 -- it ends up being a little more than this in kb
+repetitions = 10
+size_of_structure = 1000 -- it ends up being a little more than this in kb
 
 main :: IO ()
 main = do
   { thrift_server <- thrift_server_main 
   ; grpc_server <- grpc_server_main 
-  ; threadDelay 200000
+  ; threadDelay 200000 -- give the servers a couple of seconds to start up, so the clients don't freak out when they can't ping the servers.
   ; thrift <- thrift_client_new 
   ; grpc <- grpc_client_new grpc_server
   ; let grpc_b = map (fst . (runRand (generate_bigstructure size_of_structure)) . mkStdGen) [1..repetitions]
