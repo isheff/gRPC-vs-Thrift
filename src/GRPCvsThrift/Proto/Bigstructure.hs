@@ -28,6 +28,8 @@ import Network.GRPC.HighLevel.Generated as HsGRPC
 import Network.GRPC.HighLevel.Client as HsGRPC
 import Network.GRPC.HighLevel.Server as HsGRPC hiding (serverLoop)
 import Network.GRPC.HighLevel.Server.Unregistered as HsGRPC
+       (serverLoop)
+import Network.GRPC.LowLevel.Call as HsGRPC
  
 data ProtoBigStructure request
      response = ProtoBigStructure{protoBigStructurePing ::
